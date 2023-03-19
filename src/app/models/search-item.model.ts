@@ -1,6 +1,4 @@
-import { ResponseItem, Statistics, Thumbnails } from './youtube-response.model';
-
-export default interface SearchItemState {
+export default interface SearchItem {
   id: string;
   publishedAt: string;
   title: string;
