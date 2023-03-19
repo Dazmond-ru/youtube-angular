@@ -1,15 +1,15 @@
 import { ResponseItem, Statistics, Thumbnails } from './youtube-response.model';
 
 export default interface SearchItemState {
-  id: ResponseItem['id'];
-  publishedAt: ResponseItem['snippet']['publishedAt'];
-  title: ResponseItem['snippet']['title'];
-  description: ResponseItem['snippet']['description'];
-  posterUrl: Thumbnails['url'];
+  id: string;
+  publishedAt: string;
+  title: string;
+  description: string;
+  posterUrl: string;
   statistics: {
-    viewCount: Statistics['viewCount'];
-    likeCount: Statistics['likeCount'];
-    dislikeCount: Statistics['dislikeCount'];
-    commentCount: Statistics['commentCount'];
+    viewCount: string;
+    likeCount: string;
+    dislikeCount: string;
+    commentCount: string;
   };
 }
