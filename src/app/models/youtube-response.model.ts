@@ -1,14 +1,14 @@
-export interface YoutubeResponseState {
+export interface YoutubeResponse {
   kind: string;
   etag: string;
   pageInfo: {
     totalResults: number;
     resultsPerPage: number;
   };
-  items: YoutubeResponseItemState[];
+  items: ResponseItem[];
 }
 
-export interface YoutubeResponseItemState {
+export interface ResponseItem {
   kind: string;
   etag: string;
   id: string;
@@ -18,30 +18,30 @@ export interface YoutubeResponseItemState {
     title: string;
     description: string;
     thumbnails: {
-      default: YoutubeResponseThumbnailsState;
-      medium?: YoutubeResponseThumbnailsState;
-      high?: YoutubeResponseThumbnailsState;
-      standard?: YoutubeResponseThumbnailsState;
-      maxres?: YoutubeResponseThumbnailsState;
+      default: Thumbnails;
+      medium?: Thumbnails;
+      high?: Thumbnails;
+      standard?: Thumbnails;
+      maxres?: Thumbnails;
     };
     localized?: {
       title: string;
       description: string;
     };
   };
-  statistics: YoutubeResponseStatisticsState;
+  statistics: Statistics;
 }
 
-export interface YoutubeResponseThumbnailsState {
+export interface Thumbnails {
   url: string;
   width: number;
   height: number;
 }
 
-export interface YoutubeResponseStatisticsState {
+export interface Statistics {
   viewCount: string;
   likeCount: string;
   dislikeCount: string;
-  favoriteCount: string;
+  favoriteCount?: string;
   commentCount: string;
 }

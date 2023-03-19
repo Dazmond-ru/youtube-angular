@@ -1,19 +1,15 @@
-import {
-  YoutubeResponseItemState,
-  YoutubeResponseStatisticsState,
-  YoutubeResponseThumbnailsState,
-} from './youtube-response.model';
+import { ResponseItem, Statistics, Thumbnails } from './youtube-response.model';
 
 export default interface SearchItemState {
-  id: YoutubeResponseItemState['id'];
-  publishedAt: YoutubeResponseItemState['snippet']['publishedAt'];
-  title: YoutubeResponseItemState['snippet']['title'];
-  description: YoutubeResponseItemState['snippet']['description'];
-  posterUrl: YoutubeResponseThumbnailsState['url'];
+  id: ResponseItem['id'];
+  publishedAt: ResponseItem['snippet']['publishedAt'];
+  title: ResponseItem['snippet']['title'];
+  description: ResponseItem['snippet']['description'];
+  posterUrl: Thumbnails['url'];
   statistics: {
-    viewCount: YoutubeResponseStatisticsState['viewCount'];
-    likeCount: YoutubeResponseStatisticsState['likeCount'];
-    dislikeCount: YoutubeResponseStatisticsState['dislikeCount'];
-    commentCount: YoutubeResponseStatisticsState['commentCount'];
+    viewCount: Statistics['viewCount'];
+    likeCount: Statistics['likeCount'];
+    dislikeCount: Statistics['dislikeCount'];
+    commentCount: Statistics['commentCount'];
   };
 }
