@@ -16,9 +16,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FormsModule } from '@angular/forms';
+import { BottomColorDirective } from '../shared/directive/bottom-color/bottom-color.directive';
 
 @NgModule({
-  declarations: [AppComponent, SearchItemComponent, SearchItemsComponent, HeaderComponent, SearchComponent],
+  declarations: [
+    AppComponent,
+    SearchItemComponent,
+    SearchItemsComponent,
+    HeaderComponent,
+    SearchComponent,
+    BottomColorDirective,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
