@@ -1,1 +1,35 @@
-<p>header works!</p>
+<div class="header-container">
+  <div class="header__top">
+    <div class="header__top-center">
+      <div class="header__logo" routerLink="/">
+        <img src="../../../assets/images/youtube.svg" alt="youtube logo" width="60" />
+      </div>
+
+      <form class="header__search-form">
+        <mat-form-field class="header__search-input">
+          <mat-label>Search</mat-label>
+          <input matInput [(ngModel)]="searchValue" name="searchValue" />
+        </mat-form-field>
+        <button class="header__search-button" mat-raised-button color="primary">Search</button>
+      </form>
+      <mat-icon class="header__filter-button" color="primary">settings_applications</mat-icon>
+    </div>
+    <div class="header__auth">
+      <span class="header__auth-name">Your Name</span>
+      <mat-icon class="header__auth-icon" color="primary">account_box</mat-icon>
+    </div>
+  </div>
+</div>
+
+<div class="header__filter">
+  <span class="header__filter-title">Sorting by:</span>
+  <ul class="header__filter-list">
+    <li class="header__filter-item">date</li>
+    <li class="header__filter-item">count of views</li>
+    <li class="header__filter-item">by word or sentence</li>
+  </ul>
+  <mat-form-field class="header__filter-input">
+    <mat-label>Filter</mat-label>
+    <input matInput [(ngModel)]="filterValue" name="filterValue" />
+  </mat-form-field>
+</div>
