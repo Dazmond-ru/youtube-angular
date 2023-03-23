@@ -24,10 +24,16 @@ export interface ResponseItem {
       standard?: Thumbnails;
       maxres?: Thumbnails;
     };
+    channelTitle: string;
+    tags: string[];
+    categoryId: string;
+    liveBroadcastContent: string;
+    defaultLanguage?: string;
     localized?: {
       title: string;
       description: string;
     };
+    defaultAudioLanguage: string;
   };
   statistics: Statistics;
 }

@@ -15,6 +15,11 @@
         "plugin:import/recommended",
         "plugin:prettier/recommended"
       ],
+      "settings": {
+        "import/resolver": {
+          "typescript": {}
+        }
+      },
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
