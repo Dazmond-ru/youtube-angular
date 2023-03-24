@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { YoutubeResponse, ResponseItem } from '../../../models/youtube-response.model';
 import { response } from '../../../data/response';
+import { FilterService } from 'src/app/shared/services/filter.service';
+import { SortService } from 'src/app/shared/services/sort.service';
 
 @Component({
   selector: 'app-search-result-block',
@@ -10,7 +12,7 @@ import { response } from '../../../data/response';
 export class SearchItemsComponent {
   response: YoutubeResponse;
 
-  constructor() {
+  constructor(public filterService: FilterService, public sortService: SortService) {
     this.response = response;
   }
 

@@ -29,11 +29,7 @@ const DAY = OneDay.msec * OneDay.sec * OneDay.min * OneDay.hours;
 export class BottomColorDirective implements AfterViewInit {
   @Input('appBottomColor') date!: string;
 
-  elRef: ElementRef;
-
-  constructor(private el: ElementRef) {
-    this.elRef = el;
-  }
+  constructor(private elRef: ElementRef) {}
 
   color: string = '';
 
@@ -51,7 +47,7 @@ export class BottomColorDirective implements AfterViewInit {
       this.color = Colors.yellow;
     } else this.color = Colors.red;
 
-    this.el.nativeElement.style.borderBottom = `10px solid ${this.color}`;
-    this.el.nativeElement.style.borderRadius = '12px';
+    this.elRef.nativeElement.style.borderBottom = `10px solid ${this.color}`;
+    this.elRef.nativeElement.style.borderRadius = '12px';
   }
 }

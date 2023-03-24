@@ -12,9 +12,9 @@
         </mat-form-field>
         <button class="header__search-button" mat-raised-button color="primary">Search</button>
       </form>
-      <mat-icon class="header__filter-button" color="primary" (click)="showFilter = !showFilter"
-        >settings_applications</mat-icon
-      >
+      <mat-icon class="header__filter-button" color="primary" (click)="onClickSettings()">
+        settings_applications
+      </mat-icon>
     </div>
     <div class="header__auth">
       <span class="header__auth-name">Your Name</span>
@@ -23,15 +23,4 @@
   </div>
 </div>
 
-<div *ngIf="showFilter" class="header__filter">
-  <span class="header__filter-title">Sorting by:</span>
-  <ul class="header__filter-list">
-    <li class="header__filter-item">date</li>
-    <li class="header__filter-item">count of views</li>
-    <li class="header__filter-item">by word or sentence</li>
-  </ul>
-  <mat-form-field class="header__filter-input">
-    <mat-label>Filter</mat-label>
-    <input matInput [(ngModel)]="filterValue" name="filterValue" />
-  </mat-form-field>
-</div>
+<app-filtering-criteria-block *ngIf="showFilter"></app-filtering-criteria-block>

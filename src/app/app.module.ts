@@ -16,7 +16,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { FormsModule } from '@angular/forms';
-import { BottomColorDirective } from '../shared/directive/bottom-color/bottom-color.directive';
+import { BottomColorDirective } from './shared/directive/bottom-color/bottom-color.directive';
+import { FilteringCriteriaBlockComponent } from './components/header/filtering-criteria-block/filtering-criteria-block.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
+import { SortPipe } from './shared/pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { BottomColorDirective } from '../shared/directive/bottom-color/bottom-co
     HeaderComponent,
     SearchComponent,
     BottomColorDirective,
+    FilteringCriteriaBlockComponent,
+    FilterPipe,
+    SortPipe,
   ],
   imports: [
     BrowserModule,

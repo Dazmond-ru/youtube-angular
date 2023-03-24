@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FilterService } from 'src/app/shared/services/filter.service';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  searchValue?: string;
-
-  filterValue?: string;
+  searchValue = '';
 
   showFilter = false;
+
+  constructor(private filterService: FilterService) {}
+
+  onClickSettings(): void {
+    this.showFilter = !this.showFilter;
+    this.filterService.value = '';
+  }
 }

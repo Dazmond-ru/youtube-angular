@@ -1,0 +1,18 @@
+<div class="header__filter">
+  <span class="header__filter-title">Sorting by:</span>
+  <ul class="header__filter-list">
+    <li class="header__filter-item" [attr.data-sort]="'date'" (click)="handleSortClick($event)">
+      date
+      <span #date></span>
+    </li>
+    <li class="header__filter-item" [attr.data-sort]="'views'" (click)="handleSortClick($event)">
+      count of views
+      <span #views></span>
+    </li>
+    <li class="header__filter-item">by word or sentence</li>
+  </ul>
+  <mat-form-field class="header__filter-input">
+    <mat-label>Filter</mat-label>
+    <input matInput [(ngModel)]="filterValue" name="filterValue" (ngModelChange)="setFilterValue()" />
+  </mat-form-field>
+</div>
