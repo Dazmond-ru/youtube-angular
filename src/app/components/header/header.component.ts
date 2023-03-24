@@ -9,4 +9,6 @@ export class HeaderComponent {
   searchValue?: string;
 
   filterValue?: string;
+
+  showFilter = false;
 }
