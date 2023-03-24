@@ -10,7 +10,14 @@
           <mat-label>Search</mat-label>
           <input matInput [(ngModel)]="searchValue" name="searchValue" />
         </mat-form-field>
-        <button class="header__search-button" mat-raised-button color="primary">Search</button>
+        <button
+          class="header__search-button"
+          mat-raised-button
+          color="primary"
+          [disabled]="isDisabled(searchValue)"
+          (click)="onClickSearchButton()">
+          Search
+        </button>
       </form>
       <mat-icon class="header__filter-button" color="primary" (click)="onClickSettings()">
         settings_applications

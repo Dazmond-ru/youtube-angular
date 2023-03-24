@@ -5,7 +5,7 @@
 </header>
 <main class="main">
   <div class="container">
-    <app-search-result-block></app-search-result-block>
+    <app-search-result-block *ngIf="isShowResults()"></app-search-result-block>
     <!-- <router-outlet></router-outlet> -->
   </div>
 </main>
