@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SearchResultService } from './shared/services/search-result.service';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,9 @@ import { SearchResultService } from './shared/services/search-result.service';
 export class AppComponent {
   title = 'angular-ts-app';
 
-  constructor(private SearchResult: SearchResultService) {}
+  isShowResults = false;
 
-  isShowResults() {
-    return this.SearchResult.isShow;
+  onShowResultsChange(value: boolean) {
+    this.isShowResults = value;
   }
 }

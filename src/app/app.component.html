@@ -1,11 +1,6 @@
-<header class="header">
-  <div class="container">
-    <app-header></app-header>
-  </div>
-</header>
-<main class="main">
-  <div class="container">
-    <app-search-result-block *ngIf="isShowResults()"></app-search-result-block>
-    <!-- <router-outlet></router-outlet> -->
-  </div>
+<app-header (showResultsChange)="onShowResultsChange($event)"></app-header>
+
+<main class="main container">
+  <app-search-result-block *ngIf="isShowResults"></app-search-result-block>
+  <!-- <router-outlet></router-outlet> -->
 </main>

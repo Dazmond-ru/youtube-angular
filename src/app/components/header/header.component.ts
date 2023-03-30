@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FilterService } from 'src/app/shared/services/filter.service';
-import { SearchResultService } from 'src/app/shared/services/search-result.service';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +11,13 @@ export class HeaderComponent {
 
   showFilter = false;
 
-  constructor(private filterService: FilterService, private searchResults: SearchResultService) {}
+  @Output() showResultsChange = new EventEmitter<boolean>();
+
+  constructor(private filterService: FilterService) {}
 
   onClickSettings(): void {
     this.showFilter = !this.showFilter;
-    this.filterService.value = '';
+    this.filterService.filterValue = '';
   }
 
   isDisabled(value: string): boolean {
@@ -24,7 +25,7 @@ export class HeaderComponent {
   }
 
   onClickSearchButton(): void {
-    this.searchResults.isShow = true;
+    this.showResultsChange.emit(true);
     this.searchValue = '';
   }
 }

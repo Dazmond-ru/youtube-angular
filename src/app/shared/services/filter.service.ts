@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class FilterService {
-  private filterValue = '';
+  private _filterValue = '';
 
-  get value() {
-    return this.filterValue;
+  get filterValue() {
+    return this._filterValue;
   }
 
-  set value(value: string) {
-    if (value !== this.filterValue) {
-      this.filterValue = value;
+  set filterValue(value: string) {
+    if (value !== this._filterValue) {
+      this._filterValue = value;
     }
   }
 }

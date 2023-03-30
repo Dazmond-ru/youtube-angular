@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SortState } from 'src/app/models/sort.models';
+import { SortOrder, SortState } from 'src/app/models/sort.models';
 import { ResponseItem } from 'src/app/models/youtube-response.model';
 
 @Pipe({
@@ -17,7 +17,7 @@ export class SortPipe implements PipeTransform {
           sortSettings.type === 'date'
             ? [new Date(a.snippet.publishedAt).getTime(), new Date(b.snippet.publishedAt).getTime()]
             : [Number(a.statistics.viewCount), Number(b.statistics.viewCount)];
-        return sortSettings.order === 'asc' ? firstValue - secondValue : secondValue - firstValue;
+        return sortSettings.order === SortOrder.asc ? firstValue - secondValue : secondValue - firstValue;
       }
       return 0;
     });

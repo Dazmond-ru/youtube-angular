@@ -6,6 +6,6 @@ import { ResponseItem } from 'src/app/models/youtube-response.model';
   templateUrl: './search-result-item.component.html',
   styleUrls: ['./search-result-item.component.scss'],
 })
-export class SearchItemComponent {
+export class SearchResultItemComponent {
   @Input() item!: ResponseItem;
 }

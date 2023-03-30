@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SearchItemComponent } from './components/search/search-result-item/search-result-item.component';
-import { SearchItemsComponent } from './components/search/search-result-block/search-result-block.component';
+import { SearchResultItemComponent } from './components/search/search-result-item/search-result-item.component';
+import { SearchResultBlockComponent } from './components/search/search-result-block/search-result-block.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SearchComponent } from './components/search/search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -24,10 +23,9 @@ import { SortPipe } from './shared/pipes/sort.pipe';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchItemComponent,
-    SearchItemsComponent,
+    SearchResultItemComponent,
+    SearchResultBlockComponent,
     HeaderComponent,
-    SearchComponent,
     BottomColorDirective,
     FilteringCriteriaBlockComponent,
     FilterPipe,
