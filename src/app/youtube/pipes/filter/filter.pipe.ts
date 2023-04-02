@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ResponseItem } from 'src/app/models/youtube-response.model';
+import { ResponseItem } from '../../../models/youtube-response.model';
 
 @Pipe({
   name: 'filter',

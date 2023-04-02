@@ -21,6 +21,11 @@ import { FilteringCriteriaBlockComponent } from './core/components/filtering-cri
 import { BottomColorDirective } from './youtube/directives/bottom-color/bottom-color.directive';
 import { SearchResultItemComponent } from './youtube/components/search-result-item/search-result-item.component';
 import { SearchResultBlockComponent } from './youtube/components/search-result-block/search-result-block.component';
+import { MainComponent } from './youtube/pages/main/main.component';
+import { DetailedInformationComponent } from './youtube/pages/detailed-information/detailed-information.component';
+import { NotFoundComponent } from './core/pages/not-found/not-found.component';
+
+import { LoginComponent } from './auth/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +37,10 @@ import { SearchResultBlockComponent } from './youtube/components/search-result-b
     FilteringCriteriaBlockComponent,
     FilterPipe,
     SortPipe,
+    MainComponent,
+    DetailedInformationComponent,
+    NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

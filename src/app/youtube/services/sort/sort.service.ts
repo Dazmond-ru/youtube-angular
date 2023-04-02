@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SortOrder, SortState, SortType } from 'src/app/models/sort.models';
+import { SortOrder, SortState, SortType } from '../../../models/sort.models';
 
 type SortItem = { text: string; order: SortOrder; type: SortType };
 @Injectable({

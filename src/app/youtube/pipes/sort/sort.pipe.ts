@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SortOrder, SortState } from 'src/app/models/sort.models';
-import { ResponseItem } from 'src/app/models/youtube-response.model';
+import { SortOrder, SortState } from '../../../models/sort.models';
+import { ResponseItem } from '../../../models/youtube-response.model';
 
 @Pipe({
   name: 'sort',

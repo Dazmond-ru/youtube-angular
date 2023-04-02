@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ResponseItem } from 'src/app/models/youtube-response.model';
+import { ResponseItem } from '../../../models/youtube-response.model';
 
 @Component({
   selector: 'app-search-result-item',

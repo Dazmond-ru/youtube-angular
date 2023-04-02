@@ -18,7 +18,7 @@ export class SearchResultBlockComponent {
     this.response = response;
   }
 
-  trackByFn(index: number, item: ResponseItem) {
+  trackByFn(_index: number, item: ResponseItem) {
     return item.id;
   }
 }
