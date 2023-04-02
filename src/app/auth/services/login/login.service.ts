@@ -18,4 +18,8 @@ export class LoginService {
   logout() {
     localStorage.removeItem(token);
   }
+
+  isAuth() {
+    return Boolean(localStorage.getItem(token));
+  }
 }

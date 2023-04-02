@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { FilterService } from '../../../youtube/services/filter/filter.service';
 import { Router } from '@angular/router';
 import { ResultsService } from '../../../youtube/services/results/results.service';
+import { LoginService } from '../../../auth/services/login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +14,16 @@ export class HeaderComponent {
 
   showFilter = false;
 
+  isLoggedIn = false;
+
   @Output() showResultsChange = new EventEmitter<boolean>();
 
-  constructor(private filterService: FilterService, private resultsService: ResultsService, private router: Router) {}
+  constructor(
+    private filterService: FilterService,
+    private resultsService: ResultsService,
+    private router: Router,
+    private loginService: LoginService
+  ) {}
 
   onClickSettings(): void {
     this.showFilter = !this.showFilter;
@@ -29,6 +37,15 @@ export class HeaderComponent {
   onClickSearchButton(): void {
     this.resultsService.isShow = true;
     this.searchValue = '';
-    this.router.navigate(['/']);
+    this.router.navigate(['/youtube']);
+  }
+
+  onClickLogout(): void {
+    this.loginService.logout();
+    this.router.navigate(['/login']);
+  }
+
+  isAuth(): boolean {
+    return this.loginService.isAuth();
   }
 }

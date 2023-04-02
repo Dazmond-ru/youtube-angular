@@ -21,7 +21,7 @@ export class LoginComponent {
     this.form.value.password = this.form.value.password?.trim();
 
     this.loginService.login(this.form.value as LoginState);
-    this.router.navigate(['/']);
+    this.router.navigate(['/youtube']);
   }
 
   checkLength(control: FormControl) {

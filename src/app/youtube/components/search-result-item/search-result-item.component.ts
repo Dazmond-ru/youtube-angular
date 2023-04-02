@@ -13,6 +13,6 @@ export class SearchResultItemComponent {
   constructor(private router: Router) {}
 
   onButtonClick(item: ResponseItem) {
-    this.router.navigate(['/', item.id]);
+    this.router.navigate(['/youtube', item.id]);
   }
 }
