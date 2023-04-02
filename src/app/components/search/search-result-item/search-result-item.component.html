@@ -1,0 +1,26 @@
+<div class="item">
+  <div class="item__image">
+    <img [src]="item.snippet.thumbnails.medium?.url" [alt]="item.snippet.title" />
+  </div>
+  <div class="item__statistics">
+    <span class="item__statistics__views">
+      <mat-icon>visibility</mat-icon>
+      {{ item.statistics.viewCount }}
+    </span>
+    <span class="item__statistics__likes">
+      <mat-icon>thumb_up</mat-icon>
+      {{ item.statistics.likeCount }}
+    </span>
+    <span class="item__statistics__dislikes">
+      <mat-icon>thumb_down</mat-icon>
+      {{ item.statistics.dislikeCount }}
+    </span>
+    <span class="item__statistics__comments">
+      <mat-icon>question_answer</mat-icon>
+      {{ item.statistics.commentCount }}
+    </span>
+  </div>
+  <div class="item__title">{{ item.snippet.title }}</div>
+
+  <button class="item__button" mat-raised-button color="primary">More...</button>
+</div>

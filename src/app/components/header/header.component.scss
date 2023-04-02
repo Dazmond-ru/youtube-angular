@@ -1,0 +1,58 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__top {
+  display: flex;
+  align-items: center;
+}
+
+.header__top-center {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header__logo {
+  cursor: pointer;
+}
+
+.header__search-form {
+  display: flex;
+  align-items: center;
+}
+
+.header__search-input {
+  width: 500px;
+
+  margin-top: 18px;
+}
+
+.header__search-button {
+  padding: 10px 40px;
+  font-size: 1.2rem;
+}
+
+.header__filter-button {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  cursor: pointer;
+}
+
+.header__auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.header__auth-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  cursor: pointer;
+}

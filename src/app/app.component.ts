@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-ts-app';
+
+  isShowResults = false;
+
+  onShowResultsChange(value: boolean) {
+    this.isShowResults = value;
+  }
 }
