@@ -48,6 +48,5 @@ export class BottomColorDirective implements AfterViewInit {
     } else this.color = Colors.red;
 
     this.elRef.nativeElement.style.borderBottom = `10px solid ${this.color}`;
-    this.elRef.nativeElement.style.borderRadius = '12px';
   }
 }

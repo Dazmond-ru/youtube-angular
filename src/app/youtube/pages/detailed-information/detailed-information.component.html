@@ -7,7 +7,7 @@
       <div class="info__img">
         <img [src]="item.snippet.thumbnails.maxres?.url" alt="" />
       </div>
-      <div class="info-right">
+      <div class="info-right" [appBottomColor]="item.snippet.publishedAt">
         <div class="info-right__container">
           <div class="info-right__top">
             <h1 class="info-right__title">{{ item.snippet.title }}</h1>
