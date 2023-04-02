@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './core/components/header/header.component';
 import { FilterPipe } from './youtube/pipes/filter/filter.pipe';
@@ -24,7 +24,6 @@ import { SearchResultBlockComponent } from './youtube/components/search-result-b
 import { MainComponent } from './youtube/pages/main/main.component';
 import { DetailedInformationComponent } from './youtube/pages/detailed-information/detailed-information.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
-
 import { LoginComponent } from './auth/pages/login/login.component';
 
 @NgModule({
@@ -50,8 +49,9 @@ import { LoginComponent } from './auth/pages/login/login.component';
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    FormsModule,
     MatToolbarModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
