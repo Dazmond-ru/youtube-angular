@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ResponseItem } from '../../../models/youtube-response.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-result-item',
@@ -8,4 +9,10 @@ import { ResponseItem } from '../../../models/youtube-response.model';
 })
 export class SearchResultItemComponent {
   @Input() item!: ResponseItem;
+
+  constructor(private router: Router) {}
+
+  onButtonClick(item: ResponseItem) {
+    this.router.navigate(['/', item.id]);
+  }
 }
