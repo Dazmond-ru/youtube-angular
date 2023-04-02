@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FilterService } from '../../../youtube/services/filter/filter.service';
+import { Router } from '@angular/router';
+import { ResultsService } from '../../../youtube/services/results/results.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +15,7 @@ export class HeaderComponent {
 
   @Output() showResultsChange = new EventEmitter<boolean>();
 
-  constructor(private filterService: FilterService) {}
+  constructor(private filterService: FilterService, private resultsService: ResultsService, private router: Router) {}
 
   onClickSettings(): void {
     this.showFilter = !this.showFilter;
@@ -25,7 +27,8 @@ export class HeaderComponent {
   }
 
   onClickSearchButton(): void {
-    this.showResultsChange.emit(true);
+    this.resultsService.isShow = true;
     this.searchValue = '';
+    this.router.navigate(['/']);
   }
 }
