@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { YoutubeResponse, ResponseItem } from '../../../models/youtube-response.model';
 import { response } from '../../../data/response';
-import { FilterService } from 'src/app/shared/services/filter.service';
-import { SortService } from 'src/app/shared/services/sort.service';
+import { FilterService } from '../../services/filter/filter.service';
+import { SortService } from '../../services/sort/sort.service';
 
 @Component({
   selector: 'app-search-result-block',

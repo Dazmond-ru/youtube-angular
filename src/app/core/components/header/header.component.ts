@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FilterService } from 'src/app/shared/services/filter.service';
+import { FilterService } from 'src/app/youtube/services/filter/filter.service';
 
 @Component({
   selector: 'app-header',

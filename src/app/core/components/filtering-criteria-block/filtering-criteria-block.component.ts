@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
-import { FilterService } from 'src/app/shared/services/filter.service';
-import { SortService } from 'src/app/shared/services/sort.service';
+import { FilterService } from 'src/app/youtube/services/filter/filter.service';
+import { SortService } from 'src/app/youtube/services/sort/sort.service';
 
 @Component({
   selector: 'app-filtering-criteria-block',
