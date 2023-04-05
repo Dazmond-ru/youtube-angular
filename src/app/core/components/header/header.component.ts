@@ -25,27 +25,27 @@ export class HeaderComponent {
     private loginService: LoginService
   ) {}
 
-  onClickSettings(): void {
+  toggleSettingsVisibility(): void {
     this.showFilter = !this.showFilter;
     this.filterService.filterValue = '';
   }
 
-  isDisabled(value: string): boolean {
+  isSearchButtonDisabled(value: string): boolean {
     return value.trim().length === 0;
   }
 
-  onClickSearchButton(): void {
-    this.resultsService.isShow = true;
+  handleSearch(): void {
+    this.resultsService.isShowResults = true;
     this.searchValue = '';
     this.router.navigate(['/youtube']);
   }
 
-  onClickLogout(): void {
+  handleLogout(): void {
     this.loginService.logout();
     this.router.navigate(['/login']);
   }
 
-  isAuth(): boolean {
+  get isAuth(): boolean {
     return this.loginService.isAuth();
   }
 }

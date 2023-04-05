@@ -10,6 +10,6 @@ export class MainComponent {
   constructor(private resultsService: ResultsService) {}
 
   isShowResults() {
-    return this.resultsService.isShow;
+    return this.resultsService.isShowResults;
   }
 }

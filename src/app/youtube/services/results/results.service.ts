@@ -1,16 +1,27 @@
 import { Injectable } from '@angular/core';
+import { response } from '../../../data/response';
+import { ResponseItem, YoutubeResponse } from '../../../models/youtube-response.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ResultsService {
-  private isShowResults: boolean = false;
+  private _isShowResults = false;
+  private _response!: YoutubeResponse;
 
-  get isShow() {
-    return this.isShowResults;
+  get isShowResults() {
+    return this._isShowResults;
   }
 
-  set isShow(isClickSearchButton) {
-    this.isShowResults = isClickSearchButton;
+  set isShowResults(isClickSearchButton) {
+    this._isShowResults = isClickSearchButton;
+  }
+
+  get allResults() {
+    return this._response;
+  }
+
+  getItemById(id: string): ResponseItem | undefined {
+    return response.items.find(item => item.id === id);
   }
 }

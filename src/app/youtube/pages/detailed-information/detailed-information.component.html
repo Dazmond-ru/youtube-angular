@@ -18,24 +18,7 @@
             <p>{{ item.snippet.description }}</p>
           </div>
         </div>
-        <ul class="info-right__statistics">
-          <li class="info-right__views">
-            <mat-icon>visibility</mat-icon>
-            {{ item.statistics.viewCount }}
-          </li>
-          <li class="info-right__likes">
-            <mat-icon>thumb_up</mat-icon>
-            {{ item.statistics.likeCount }}
-          </li>
-          <li class="info-right__dislikes">
-            <mat-icon>thumb_down</mat-icon>
-            {{ item.statistics.dislikeCount }}
-          </li>
-          <li class="info-right__comments">
-            <mat-icon>question_answer</mat-icon>
-            {{ item.statistics.commentCount }}
-          </li>
-        </ul>
+        <app-statistics [item]="item"></app-statistics>
       </div>
     </div>
   </div>

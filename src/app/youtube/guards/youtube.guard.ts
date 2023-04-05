@@ -8,6 +8,6 @@ import { LoginService } from '../../auth/services/login/login.service';
 export class YoutubeGuard implements CanActivate {
   constructor(private login: LoginService, private router: Router) {}
   canActivate(): boolean | Promise<boolean> {
-    return this.login.isAuth() ? true : this.router.navigate(['/login']);
+    return this.login.isAuth() || this.router.navigate(['/login']);
   }
 }

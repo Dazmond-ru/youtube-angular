@@ -9,6 +9,7 @@ import { SearchResultItemComponent } from '../components/search-result-item/sear
 import { SearchResultBlockComponent } from '../components/search-result-block/search-result-block.component';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { MaterialModule } from '../../material/material.module';
+import { StatisticsComponent } from '../../core/components/statistics/statistics.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MaterialModule } from '../../material/material.module';
     FilterPipe,
     SortPipe,
     DetailedInformationComponent,
+    StatisticsComponent,
   ],
   imports: [CommonModule, YoutubeRoutingModule, MaterialModule],
 })

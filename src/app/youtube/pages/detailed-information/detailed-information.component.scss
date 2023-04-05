@@ -83,23 +83,3 @@ $img-width: 704px;
     color: #828282;
   }
 }
-
-.info-right__statistics {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-
-  li {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-
-    mat-icon {
-      width: 20px;
-      height: 20px;
-      font-size: 20px;
-    }
-  }
-}

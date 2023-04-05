@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { ResponseItem } from '../../../models/youtube-response.model';
-import { response } from '../../../data/response';
+import { ResultsService } from '../../services/results/results.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detailed-information',
@@ -9,13 +9,13 @@ import { response } from '../../../data/response';
   styleUrls: ['./detailed-information.component.scss'],
 })
 export class DetailedInformationComponent implements OnInit {
-  id: string = '';
+  id = '';
   item!: ResponseItem;
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute, private resultsService: ResultsService) {}
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
-    this.item = response.items.find(item => item.id === this.id)!;
+    this.item = this.resultsService.getItemById(this.id)!;
   }
 }

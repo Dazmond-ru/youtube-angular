@@ -22,21 +22,6 @@
   object-fit: cover;
 }
 
-.item__statistics {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  width: calc(100% - 10px);
-  margin-bottom: 1rem;
-
-  & span {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-}
-
 .item__title {
   align-self: flex-end;
   height: 70px;

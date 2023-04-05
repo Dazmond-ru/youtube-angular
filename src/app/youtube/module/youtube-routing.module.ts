@@ -7,10 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+    data: { class: 'statistics-main' },
   },
   {
     path: ':id',
     component: DetailedInformationComponent,
+    data: { class: 'statistics-info' },
   },
 ];
 

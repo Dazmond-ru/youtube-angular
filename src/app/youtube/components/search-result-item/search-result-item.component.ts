@@ -12,7 +12,7 @@ export class SearchResultItemComponent {
 
   constructor(private router: Router) {}
 
-  onButtonClick(item: ResponseItem) {
+  openDetailedInformationPage(item: ResponseItem) {
     this.router.navigate(['/youtube', item.id]);
   }
 }
