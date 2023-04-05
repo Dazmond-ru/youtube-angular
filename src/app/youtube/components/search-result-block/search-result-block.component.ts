@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ResponseItem, YoutubeResponse } from '../../../models/youtube-response.model';
+import { YoutubeResponse, ResponseItem } from '../../../models/youtube-response.model';
 import { FilterService } from '../../services/filter/filter.service';
 import { SortService } from '../../services/sort/sort.service';
 import { ResultsService } from '../../services/results/results.service';
@@ -10,9 +10,9 @@ import { ResultsService } from '../../services/results/results.service';
   styleUrls: ['./search-result-block.component.scss'],
 })
 export class SearchResultBlockComponent {
-  @Input() isShowResults = false;
-
   response: YoutubeResponse;
+
+  @Input() isShowResults = false;
 
   constructor(
     public filterService: FilterService,
