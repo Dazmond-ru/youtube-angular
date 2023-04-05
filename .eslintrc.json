@@ -15,11 +15,6 @@
         "plugin:import/recommended",
         "plugin:prettier/recommended"
       ],
-      "settings": {
-        "import/resolver": {
-          "typescript": {}
-        }
-      },
       "rules": {
         "@angular-eslint/directive-selector": [
           "error",
@@ -36,7 +31,11 @@
             "prefix": "app",
             "style": "kebab-case"
           }
-        ]
+        ],
+        "@typescript-eslint/lines-between-class-members": "off",
+        "import/prefer-default-export": "off",
+        "class-methods-use-this": "off",
+        "import/named": "off"
       }
     },
     {

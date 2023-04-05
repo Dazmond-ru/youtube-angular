@@ -1,0 +1,13 @@
+<div class="item">
+  <div class="item__image">
+    <img [src]="item.snippet.thumbnails.medium?.url" [alt]="item.snippet.title" />
+  </div>
+
+  <app-statistics [item]="item"></app-statistics>
+
+  <div class="item__title">{{ item.snippet.title }}</div>
+
+  <button class="item__button" mat-raised-button color="primary" (click)="openDetailedInformationPage(item)">
+    More...
+  </button>
+</div>
