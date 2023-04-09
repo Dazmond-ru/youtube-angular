@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { LoginService, LoginState } from '../../services/login/login.service';
 
+const passwordPattern = '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@#$%^&(){}[\\]:;<>,.?~_+\\-=|\\\\/"\']).{8,}$';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,8 +10,8 @@ import { LoginService, LoginState } from '../../services/login/login.service';
 })
 export class LoginComponent {
   form = this.formBuilder.group({
-    login: ['', [Validators.required, this.checkLength]],
-    password: ['', [Validators.required, this.checkLength]],
+    login: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.pattern(passwordPattern)]],
   });
 
   constructor(private formBuilder: FormBuilder, private loginService: LoginService) {}
