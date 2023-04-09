@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FilterService } from '../../../youtube/services/filter/filter.service';
 import { Router } from '@angular/router';
 import { ResultsService } from '../../../youtube/services/results/results.service';
@@ -9,7 +9,7 @@ import { LoginService } from '../../../auth/services/login/login.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   searchValue = '';
 
   showFilter = false;
@@ -38,15 +38,6 @@ export class HeaderComponent {
     this.router.navigate(['/youtube']);
   }
 
-  handleLogout(): void {
-    this.loginService.logout();
-    this.router.navigate(['/login']);
-  }
-
-  get isAuth(): boolean {
-    return this.loginService.isAuth();
-  }
-
   onChange(event: KeyboardEvent) {
     const { value } = event.target as HTMLInputElement;
     const { length } = value.trim();
@@ -55,5 +46,21 @@ export class HeaderComponent {
       this.router.navigate(['/youtube']);
       this.resultsService.searchValue.next(value);
     }
+  }
+
+  ngOnInit() {
+    this.loginService.isLogin.subscribe(isLogin => {
+      this.isLoggedIn = isLogin;
+    });
+  }
+
+  toggleAuth(): void {
+    if (this.isLoggedIn) {
+      this.loginService.logout();
+    }
+  }
+
+  buttonText(): string {
+    return this.isLoggedIn ? 'Logout' : 'Login';
   }
 }
