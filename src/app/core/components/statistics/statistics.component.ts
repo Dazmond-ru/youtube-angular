@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ResponseItem } from '../../../models/youtube-response.model';
 import { ActivatedRoute } from '@angular/router';
+import { VideoItem } from '../../../youtube/models/video-response.model';
 
 @Component({
   selector: 'app-statistics',
@@ -8,9 +8,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./statistics.component.scss'],
 })
 export class StatisticsComponent implements OnInit {
-  @Input() item!: ResponseItem;
+  @Input() item!: VideoItem;
 
   statisticsClass?: string;
+
+  dislikeCount = 777;
 
   constructor(private route: ActivatedRoute) {}
 

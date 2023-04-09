@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { ResponseItem } from '../../../models/youtube-response.model';
 import { Router } from '@angular/router';
+import { VideoItem } from '../../models/video-response.model';
 
 @Component({
   selector: 'app-search-result-item',
@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./search-result-item.component.scss'],
 })
 export class SearchResultItemComponent {
-  @Input() item!: ResponseItem;
+  @Input() item!: VideoItem;
 
   constructor(private router: Router) {}
 
-  openDetailedInformationPage(item: ResponseItem) {
+  openDetailedInformationPage(item: VideoItem) {
     this.router.navigate(['/youtube', item.id]);
   }
 }

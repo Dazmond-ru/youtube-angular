@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { FilterService } from '../../../youtube/services/filter/filter.service';
 import { Router } from '@angular/router';
 import { ResultsService } from '../../../youtube/services/results/results.service';
@@ -15,8 +15,6 @@ export class HeaderComponent {
   showFilter = false;
 
   isLoggedIn = false;
-
-  @Output() showResultsChange = new EventEmitter<boolean>();
 
   constructor(
     private filterService: FilterService,
@@ -47,5 +45,15 @@ export class HeaderComponent {
 
   get isAuth(): boolean {
     return this.loginService.isAuth();
+  }
+
+  onChange(event: KeyboardEvent) {
+    const { value } = event.target as HTMLInputElement;
+    const { length } = value.trim();
+    if (length >= 3) {
+      this.resultsService.isShowResults = true;
+      this.router.navigate(['/youtube']);
+      this.resultsService.searchValue.next(value);
+    }
   }
 }

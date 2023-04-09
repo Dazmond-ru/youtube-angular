@@ -51,6 +51,7 @@ $img-width: 704px;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 25px;
+  align-items: flex-end;
 }
 
 .info-right__title {
@@ -67,6 +68,7 @@ $img-width: 704px;
   font-size: 10px;
   line-height: 12px;
   color: #828282;
+  min-width: 150px;
 }
 
 .info-right__description {
