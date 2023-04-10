@@ -29,10 +29,12 @@ export class LoginComponent {
 
     return null;
   }
-  get login() {
-    return this.form.get('login');
+
+  getLoginError(error: string) {
+    return this.form.get('login')?.errors?.[error];
   }
-  get password() {
-    return this.form.get('password');
+
+  getPasswordError(error: string) {
+    return this.form.get('password')?.errors?.[error];
   }
 }
