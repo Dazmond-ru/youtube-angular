@@ -12,8 +12,6 @@ export class StatisticsComponent implements OnInit {
 
   statisticsClass?: string;
 
-  dislikeCount = 777;
-
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {

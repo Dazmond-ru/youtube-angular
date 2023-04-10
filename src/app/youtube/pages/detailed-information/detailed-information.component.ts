@@ -13,16 +13,14 @@ import { VideoItem } from '../../models/video-response.model';
   styleUrls: ['./detailed-information.component.scss'],
 })
 export class DetailedInformationComponent implements OnInit, OnDestroy {
-  private sub: Subscription | undefined;
+  private subscription: Subscription | undefined;
   id = '';
   item!: VideoItem;
-
-  dislikeCount = 777;
 
   constructor(private activatedRoute: ActivatedRoute, private resultsService: ResultsService) {}
 
   ngOnInit() {
-    this.sub = this.activatedRoute.params.subscribe(params => {
+    this.subscription = this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
       this.resultsService.getVideoById(this.id).subscribe(video => {
         this.item = <VideoItem>video.items[0];
@@ -31,6 +29,6 @@ export class DetailedInformationComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub?.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 }

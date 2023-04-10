@@ -14,7 +14,7 @@ export interface LoginState {
   providedIn: 'root',
 })
 export class LoginService {
-  isLogin = new BehaviorSubject<boolean>(this.isAuth());
+  isLogin$ = new BehaviorSubject<boolean>(this.isAuth());
 
   constructor(private router: Router) {}
 
@@ -25,12 +25,12 @@ export class LoginService {
     password = password?.trim();
     this.router.navigate(['/youtube']);
 
-    this.isLogin.next(true);
+    this.isLogin$.next(true);
   }
 
   logout() {
     localStorage.removeItem(token);
-    this.isLogin.next(false);
+    this.isLogin$.next(false);
     this.router.navigate(['/']);
   }
 

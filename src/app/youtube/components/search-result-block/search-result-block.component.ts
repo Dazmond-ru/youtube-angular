@@ -4,7 +4,7 @@ import { FilterService } from '../../services/filter/filter.service';
 import { SortService } from '../../services/sort/sort.service';
 import { ResultsService } from '../../services/results/results.service';
 
-import { debounceTime, distinctUntilChanged, map, mergeMap, Subscription, switchMap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { VideoItem } from '../../models/video-response.model';
 
 @Component({
@@ -27,24 +27,12 @@ export class SearchResultBlockComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscription$ = this.getVideo();
+    this.subscription$ = this.resultsService.getSearchResult().subscribe(items => {
+      this.items = items;
+    });
   }
 
   ngOnDestroy() {
     this.subscription$.unsubscribe();
-  }
-
-  getVideo(): Subscription {
-    return this.resultsService.searchValue
-      .pipe(
-        debounceTime(1000),
-        distinctUntilChanged(),
-        mergeMap(value => this.resultsService.getSearchResult(value)),
-        map(items => this.resultsService.getVideoIdsFromSearch(items)),
-        switchMap(id => this.resultsService.getVideoItems(id))
-      )
-      .subscribe(items => {
-        this.items = items;
-      });
   }
 }

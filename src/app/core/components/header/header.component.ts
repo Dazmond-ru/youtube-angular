@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FilterService } from '../../../youtube/services/filter/filter.service';
 import { Router } from '@angular/router';
 import { ResultsService } from '../../../youtube/services/results/results.service';
 import { LoginService } from '../../../auth/services/login/login.service';
+
+const minLengthRequest = 3;
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   searchValue = '';
 
   showFilter = false;
@@ -28,20 +30,10 @@ export class HeaderComponent implements OnInit {
     this.filterService.filterValue = '';
   }
 
-  isSearchButtonDisabled(value: string): boolean {
-    return value.trim().length === 0;
-  }
-
-  handleSearch(): void {
-    this.resultsService.isShowResults = true;
-    this.searchValue = '';
-    this.router.navigate(['/youtube']);
-  }
-
   onChange(event: KeyboardEvent) {
     const { value } = event.target as HTMLInputElement;
     const { length } = value.trim();
-    if (length >= 3) {
+    if (length >= minLengthRequest) {
       this.resultsService.isShowResults = true;
       this.router.navigate(['/youtube']);
       this.resultsService.searchValue.next(value);
@@ -49,9 +41,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.isLogin.subscribe(isLogin => {
+    this.loginService.isLogin$.subscribe(isLogin => {
       this.isLoggedIn = isLogin;
     });
+  }
+
+  ngOnDestroy() {
+    this.loginService.isLogin$.unsubscribe();
   }
 
   toggleAuth(): void {
