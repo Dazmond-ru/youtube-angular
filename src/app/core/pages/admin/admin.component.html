@@ -31,10 +31,10 @@
     </mat-form-field>
 
     <mat-form-field class="admin__input" appearance="fill">
-      <mat-label>Link video</mat-label>
+      <mat-label>Date</mat-label>
       <input type="date" matInput formControlName="date" placeholder="Please enter a creation date" />
       <mat-error *ngIf="date?.hasError('required')">Please enter a creation date!</mat-error>
-      <mat-error *ngIf="date?.hasError('isFutureDate')">The date is invalid!</mat-error>
+      <mat-error *ngIf="date?.hasError('isFuture')">The date is invalid!</mat-error>
     </mat-form-field>
 
     <button class="admin__button" type="submit" mat-raised-button color="primary" [disabled]="!form.valid">

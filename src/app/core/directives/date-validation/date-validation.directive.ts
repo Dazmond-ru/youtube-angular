@@ -19,6 +19,6 @@ export function dateValidation(): ValidatorFn {
       }
     }
 
-    return { isFutureDate: true };
+    return { isFuture: true };
   };
 }

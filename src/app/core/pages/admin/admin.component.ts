@@ -11,7 +11,7 @@ const videoRegEx = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent {
-  form = this.fb.group({
+  form = this.formBuilder.group({
     title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     description: ['', Validators.maxLength(255)],
     image: ['', [Validators.required, Validators.pattern(imgRegEx)]],
@@ -19,7 +19,7 @@ export class AdminComponent {
     date: ['', [Validators.required, dateValidation()]],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder) {}
 
   onSubmit() {}
 
