@@ -14,9 +14,17 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
+import { AdminComponent } from './core/pages/admin/admin.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FilteringCriteriaBlockComponent, NotFoundComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FilteringCriteriaBlockComponent,
+    NotFoundComponent,
+    LoginComponent,
+    AdminComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
