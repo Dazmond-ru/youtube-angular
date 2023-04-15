@@ -1,16 +1,21 @@
 <div class="login">
-  <h2>Login</h2>
+  <h2 class="login__title">Login</h2>
   <form class="login__form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field class="login__input" appearance="fill">
       <mat-label>Enter your Login</mat-label>
-      <input type="text" matInput formControlName="login" />
-      <mat-error *ngIf="login?.invalid">Enter valid Login</mat-error>
+      <input type="text" matInput formControlName="login" placeholder="example@gmail.com" />
+      <mat-error *ngIf="getLoginError('required')">Please enter a login email!</mat-error>
+      <mat-error *ngIf="getLoginError('email')">The login email is invalid!</mat-error>
     </mat-form-field>
 
     <mat-form-field class="login__input" appearance="fill">
       <mat-label>Enter your password</mat-label>
-      <input type="password" matInput formControlName="password" />
-      <mat-error *ngIf="password?.invalid">Enter valid password</mat-error>
+      <input type="password" matInput formControlName="password" placeholder="******" />
+      <mat-error *ngIf="getPasswordError('required')">Please enter a password!</mat-error>
+      <mat-error *ngIf="getPasswordError('pattern')"
+        >Your password isn't strong enough, you need enter at least 8 characters (letters and numbers), uppercase and
+        lowercase letters, special character!
+      </mat-error>
     </mat-form-field>
 
     <button class="login__button" type="submit" mat-raised-button color="primary" [disabled]="!form.valid">

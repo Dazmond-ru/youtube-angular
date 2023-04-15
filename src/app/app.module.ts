@@ -14,12 +14,20 @@ import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
+import { AdminComponent } from './core/pages/admin/admin.component';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './youtube/interceptor/token/token.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FilteringCriteriaBlockComponent, NotFoundComponent, LoginComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FilteringCriteriaBlockComponent,
+    NotFoundComponent,
+    LoginComponent,
+    AdminComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

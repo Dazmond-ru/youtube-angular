@@ -5,6 +5,7 @@ import { LoginComponent } from './auth/pages/login/login.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { YoutubeGuard } from './youtube/guards/youtube.guard';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { AdminComponent } from './core/pages/admin/admin.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/login' },
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'youtube',
     loadChildren: () => import('./youtube/youtube.module').then(m => m.YoutubeModule),
+    canActivate: [YoutubeGuard],
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
     canActivate: [YoutubeGuard],
   },
   {

@@ -59,4 +59,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   buttonText(): string {
     return this.isLoggedIn ? 'Logout' : 'Login';
   }
+
+  get isAuth(): boolean {
+    return this.loginService.isAuth();
+  }
 }

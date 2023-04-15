@@ -8,6 +8,11 @@
   background: #f2f2f2;
   border-radius: 5px;
   padding: 3rem 2rem;
+  width: 400px;
+}
+
+.login__title {
+  font-weight: 700;
 }
 
 .login__form {
@@ -15,10 +20,8 @@
   flex-direction: column;
 }
 
-.login__input {
-  width: 300px;
-}
-
 .login__button {
-  margin-top: 30px;
+  margin-top: 3rem;
+  width: 50%;
+  margin-left: auto;
 }
