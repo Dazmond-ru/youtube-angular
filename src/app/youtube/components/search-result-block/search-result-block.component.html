@@ -1,9 +1,6 @@
 <app-search-result-item
   class="items"
-  *ngFor="
-    let item of response.items | filter : filterService.filterValue | sort : sortService.sortValue;
-    trackBy: trackByFn
-  "
+  *ngFor="let item of items | filter : filterService.filterValue | sort : sortService.sortValue; trackBy: trackByFn"
   [item]="item"
   [appBottomColor]="item.snippet.publishedAt">
 </app-search-result-item>

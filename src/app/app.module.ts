@@ -16,6 +16,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { AdminComponent } from './core/pages/admin/admin.component';
 
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './youtube/interceptor/token/token.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +28,16 @@ import { AdminComponent } from './core/pages/admin/admin.component';
     LoginComponent,
     AdminComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

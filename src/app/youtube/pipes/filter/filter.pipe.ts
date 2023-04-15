@@ -1,15 +1,15 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ResponseItem } from '../../../models/youtube-response.model';
+import { VideoItem } from '../../models/video-response.model';
 
 @Pipe({
   name: 'filter',
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: ResponseItem[], filterValue?: string): ResponseItem[] {
+  transform(items: VideoItem[], filterValue?: string): VideoItem[] {
     return filterValue ? this.filter(items, filterValue) : items;
   }
 
-  filter(items: ResponseItem[], filterValue: string) {
+  filter(items: VideoItem[], filterValue: string) {
     return items.filter(item => item.snippet.title.toLowerCase().includes(filterValue));
   }
 }

@@ -1,17 +1,23 @@
-export interface YoutubeResponse {
+import { Statistics } from './statistics.models';
+import { Thumbnails } from './thumbnails.model';
+
+export interface SearchResponse {
   kind: string;
   etag: string;
   pageInfo: {
     totalResults: number;
     resultsPerPage: number;
   };
-  items: ResponseItem[];
+  items: SearchItem[];
 }
 
-export interface ResponseItem {
+export interface SearchItem {
   kind: string;
   etag: string;
-  id: string;
+  id: {
+    kind: string;
+    videoId: string;
+  };
   snippet: {
     publishedAt: string;
     channelId: string;
@@ -19,35 +25,21 @@ export interface ResponseItem {
     description: string;
     thumbnails: {
       default: Thumbnails;
-      medium?: Thumbnails;
-      high?: Thumbnails;
-      standard?: Thumbnails;
-      maxres?: Thumbnails;
+      medium: Thumbnails;
+      high: Thumbnails;
+      standard: Thumbnails;
+      maxres: Thumbnails;
     };
     channelTitle: string;
     tags: string[];
     categoryId: string;
     liveBroadcastContent: string;
     defaultLanguage?: string;
-    localized?: {
+    localized: {
       title: string;
       description: string;
     };
     defaultAudioLanguage: string;
   };
   statistics: Statistics;
-}
-
-export interface Thumbnails {
-  url: string;
-  width: number;
-  height: number;
-}
-
-export interface Statistics {
-  viewCount: string;
-  likeCount: string;
-  dislikeCount: string;
-  favoriteCount?: string;
-  commentCount: string;
 }

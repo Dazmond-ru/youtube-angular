@@ -1,16 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { SortOrder, SortState } from '../../../models/sort.models';
-import { ResponseItem } from '../../../models/youtube-response.model';
+import { SortOrder, SortState } from '../../models/sort.models';
+import { VideoItem } from '../../models/video-response.model';
 
 @Pipe({
   name: 'sort',
 })
 export class SortPipe implements PipeTransform {
-  transform(items: ResponseItem[], sortSettings?: SortState): ResponseItem[] {
+  transform(items: VideoItem[], sortSettings?: SortState): VideoItem[] {
     return sortSettings && Object.keys(sortSettings).length ? this.sort(items, sortSettings) : items;
   }
 
-  sort(items: ResponseItem[], sortSettings: SortState) {
+  sort(items: VideoItem[], sortSettings: SortState) {
     return items.sort((a, b) => {
       if (sortSettings && sortSettings.type && sortSettings.order) {
         const [firstValue, secondValue] =

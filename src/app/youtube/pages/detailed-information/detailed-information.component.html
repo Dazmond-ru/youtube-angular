@@ -1,11 +1,11 @@
 <div class="info">
   <div class="container">
-    <div class="info__content">
+    <div class="info__content" *ngIf="item">
       <a class="info__back-button" routerLink="..">
         <mat-icon class="info__arrow-back">arrow_back_ios_new</mat-icon>
       </a>
       <div class="info__img">
-        <img [src]="item.snippet.thumbnails.maxres?.url" alt="" />
+        <img [src]="item.snippet.thumbnails.high.url" [alt]="item.snippet.title" />
       </div>
       <div class="info-right" [appBottomColor]="item.snippet.publishedAt">
         <div class="info-right__container">

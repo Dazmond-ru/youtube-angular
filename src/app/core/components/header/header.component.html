@@ -3,32 +3,23 @@
     <div class="header-container">
       <div class="header__top">
         <div class="header__top-center">
-          <div class="header__logo" routerLink="/">
+          <div class="header__logo" routerLink="/youtube">
             <img src="../../../assets/images/youtube.svg" alt="youtube logo" width="60" />
           </div>
 
           <form class="header__search-form">
             <mat-form-field class="header__search-input">
               <mat-label>Search</mat-label>
-              <input matInput [(ngModel)]="searchValue" name="searchValue" />
+              <input matInput [(ngModel)]="searchValue" name="searchValue" (keyup)="onChange($event)" />
             </mat-form-field>
-            <button
-              class="header__search-button"
-              mat-raised-button
-              color="primary"
-              [disabled]="isSearchButtonDisabled(searchValue)"
-              (click)="handleSearch()">
-              Search
-            </button>
           </form>
           <mat-icon class="header__filter-button" color="primary" (click)="toggleSettingsVisibility()">
             settings_applications
           </mat-icon>
         </div>
-
-        <div class="header__auth">
+        <div class="header__auth" routerLink="/login">
           <div class="header__buttons">
-            <button class="header__logout" *ngIf="isAuth" (click)="handleLogout()">Logout</button>
+            <button class="header__logout" (click)="toggleAuth()">{{ buttonText() }}</button>
             <button class="header__admin" *ngIf="isAuth" routerLink="/admin">Create card</button>
           </div>
           <div class="header__user" routerLink="/login">

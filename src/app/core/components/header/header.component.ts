@@ -1,22 +1,22 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FilterService } from '../../../youtube/services/filter/filter.service';
 import { Router } from '@angular/router';
 import { ResultsService } from '../../../youtube/services/results/results.service';
 import { LoginService } from '../../../auth/services/login/login.service';
+
+const minLengthRequest = 3;
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   searchValue = '';
 
   showFilter = false;
 
   isLoggedIn = false;
-
-  @Output() showResultsChange = new EventEmitter<boolean>();
 
   constructor(
     private filterService: FilterService,
@@ -30,19 +30,34 @@ export class HeaderComponent {
     this.filterService.filterValue = '';
   }
 
-  isSearchButtonDisabled(value: string): boolean {
-    return value.trim().length === 0;
+  onChange(event: KeyboardEvent) {
+    const { value } = event.target as HTMLInputElement;
+    const { length } = value.trim();
+    if (length >= minLengthRequest) {
+      this.resultsService.isShowResults = true;
+      this.router.navigate(['/youtube']);
+      this.resultsService.searchValue.next(value);
+    }
   }
 
-  handleSearch(): void {
-    this.resultsService.isShowResults = true;
-    this.searchValue = '';
-    this.router.navigate(['/youtube']);
+  ngOnInit() {
+    this.loginService.isLogin$.subscribe(isLogin => {
+      this.isLoggedIn = isLogin;
+    });
   }
 
-  handleLogout(): void {
-    this.loginService.logout();
-    this.router.navigate(['/login']);
+  ngOnDestroy() {
+    this.loginService.isLogin$.unsubscribe();
+  }
+
+  toggleAuth(): void {
+    if (this.isLoggedIn) {
+      this.loginService.logout();
+    }
+  }
+
+  buttonText(): string {
+    return this.isLoggedIn ? 'Logout' : 'Login';
   }
 
   get isAuth(): boolean {
